@@ -6,37 +6,12 @@
 \usepackage[T1]{fontenc}
 \usepackage[english, portuguese]{babel}
 \usepackage{hyphenat}
-\usepackage[english, portuguese]{babel}
-\usepackage{hyphenat}
-\usepackage{times}	
-\usepackage{latexsym}		
-\usepackage{alltt}	
-\usepackage{fancyhdr}	
-\usepackage{indentfirst}		  
-\usepackage{vmargin}
 \hyphenation{mate-mática recu-perar}
-\usepackage[table,xcdraw]{xcolor}
-\usepackage{algorithmic}
-\usepackage{algorithm}
-\usepackage{clrscode}
-\usepackage{float}
-\usepackage[normal]{subfigure} 
-\usepackage[normalem]{ulem}
-\usepackage{wrapfig}
 \usepackage{amsmath}
 \usepackage{graphicx}
-\usepackage{pgfplots}
 \graphicspath{ {imagens/} }
 \usepackage{float}
 \usepackage{environ}
-\usepackage{verbatim}
-\usepackage{verbatim}
-\usepackage{enumerate}
-\usepackage{booktabs}
-\usepackage{listings}
-\usepackage{textcomp}
-\usepackage{color}
-\usepackage{booktabs}
 
 \NewEnviron{myequation}{%
 \begin{equation}
@@ -61,11 +36,36 @@
 \end{resumo}
 
 \section{Introdução}
+Para tomar decisões de maneira rápida e inteligente Organizações têm como base os dados armazenados em seus repositórios.
+Conforme o volume destes dados aumenta a má estruturação do repositório pode degradar o desempenho do acesso às informações,
+e devido a isso a tecnologia de Data Warehouse é utilizada para persistência de dados e tomada de decisões de forma eficiente.
 
+Além do armazenamento de dados, é necessário que se tenha uma aplicação que os acesse e traga informações
+de maneira tão eficiente quanto à estruturação do repositório. Aplicações OLAP analisam dados multidimensionalmente 
+e executam consultas analíticas, fazendo com que estejam fortemente associadas à Data Warehouses.
+Ao conjunto de Data Warehouse e aplicações OLAP denomina-se ambiente OLAP.
 
+Um ambiente OLAP deve ser projetado e implantado visando a rapidez na recuperação de dados \cite{wrembel2007data}, 
+\cite{codd1998providing}, \cite{kimball2002dw}. Sistemas Gerenciadores de Bancos de Dados (SGBD) surgem como uma solução 
+para esta questão, e duas classes de SGBD podem atuar como gerenciadores de Data Warehouses, os relacionais e os NoSQL. 
+Para que haja uma conclusão sobre qual abordagem é a melhor, a aplicação de um benchmark torna-se pertinente, 
+e no escopo de banco de dados um benchmark que se destaca por tratar de sistemas de suporte à decisão é o TPC-H \cite{tpch2017page}. 
 
+Outro fator que interfere no desempenho de um ambiente OLAP é a forma como este é modelado. 
+Ambientes normalizados são utilizados pela facilidade de manutenção,
+e o fácil entendimento acerca do relacionamento entre as entidades, que traz uma visão mais clara do sistema \cite{bax2003modelagem}. 
+Entretanto, modelos denormalizados surgem para trazer ganho no desempenho das consultas, por diminuir 
+as junções entre tabelas devido ao menor número de entidades.
+
+Dadas estas condições, o objetivo aqui é realizar um estudo comparativo entre um SGBD relacional e outro NoSQL 
+como gerenciadores de Data Warehouse utilizando o TPC-H. Devido a seu amplo uso e poucas modificações na linguagem SQL, foi definido o PostgreSQL 
+como SGBD relacional e o MonetDB como NoSQL, este por ainda utilizar SQL, possuir interface simples e ser o pioneiro 
+entre os bancos NoSQL colunares.
 
 \section{Recuperação e Persistência de Dados}
+
+
+
 
 \section{TPC-H}
 
@@ -73,8 +73,6 @@
 
 \section{Conclusão}
 
-
-\nocite{*}
 \bibliographystyle{sbc}
 \bibliography{REFERENCES}
 

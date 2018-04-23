@@ -1,3 +1,32 @@
 \begin{thebibliography}{}
 
+\bibitem[Bax and Souza 2003]{bax2003modelagem}
+Bax, M.~P. and Souza, R. (2003).
+\newblock Modelagem estratégica de dados: Normalização versus
+  "dimensionalização".
+\newblock {\em KMBRASIL, Anais... S{\~a}o Paulo: SBGC}.
+
+\bibitem[Codd et~al. 1993]{codd1998providing}
+Codd, E., Codd, S., and Salley, C. (1993).
+\newblock Providing olap (on-line analytical processing) to user-analysis: An
+  it mandate.
+\newblock {\em White paper}.
+
+\bibitem[Kimball and Ross 2002]{kimball2002dw}
+Kimball, R. and Ross, M. (2002).
+\newblock {\em The Data Warehouse Toolkit: The Complete Guide to Dimensional
+  Modeling}.
+\newblock Wiley Computer Publishing, 2 edition.
+
+\bibitem[TPC-H 2017]{tpch2017page}
+TPC-H (2017).
+\newblock Tpc-h homepage.
+\newblock Acessado em: 19 de maio de 2017.
+
+\bibitem[Wrembel and Koncilia 2007]{wrembel2007data}
+Wrembel, R. and Koncilia, C. (2007).
+\newblock {\em Data warehouses and OLAP: concepts, architectures, and
+  solutions}.
+\newblock Igi Global.
+
 \end{thebibliography}
