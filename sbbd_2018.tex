@@ -23,31 +23,45 @@
 
 \begin{document} 
 
-\title{Avaliando o Impacto da Modelagem de Dados em Aplicações OLAP Utilizando SGBD Relacional e Colunar}
+\title{Avaliando a Influência da Modelagem Relacional e Colunar no Gerenciamento de Ambientes OLAP por meio do TPC-H}
 \author{}
 \address{}
 
 \maketitle
 
 \begin{abstract}
+
+
+
 \end{abstract}
      
 \begin{resumo}
+Empresas têm utilizado ambientes de data warehouse (DW) 
+e aplicações OLAP como apoio à tomada de decisão. 
+Devido ao crescimento do volume de dados, meios mais eficientes para o seu processamento 
+são necessários. SGBD relacionais ainda são bastante utilizados para tal, 
+porém a abordagem NoSQL também vêm se consolidando no mercado. 
+Para avaliar qual é o mais apropriado no gerenciamento de DW, um estudo comparativo entre 
+os SGBD PostgreSQL e o NoSQL MonetDB é aqui apresentado a 
+partir do benchmark TPC-H, com diferentes volumes de dados. O MonetDB se 
+destacou em modelagens mais denormalizadas e o PostgreSQL em modelagens normalizadas; e de maneira geral, 
+o MonetDB obteve desempenho superior ao PostgreSQL.    
 \end{resumo}
 
 \section{Introdução}
 Para tomar decisões de maneira rápida e inteligente Organizações têm como base os dados armazenados em seus repositórios.
 Conforme o volume destes dados aumenta a má estruturação do repositório pode degradar o desempenho do acesso às informações,
-e devido a isso a tecnologia de Data Warehouse é utilizada para persistência de dados e tomada de decisões de forma eficiente.
+e devido a isso a tecnologia de Data Warehouses (DW) é utilizada para persistência de dados e tomada de decisões de forma eficiente.
 
 Além do armazenamento de dados, é necessário que se tenha uma aplicação que os acesse e traga informações
-de maneira tão eficiente quanto à estruturação do repositório. Aplicações OLAP analisam dados multidimensionalmente 
-e executam consultas analíticas, fazendo com que estejam fortemente associadas à Data Warehouses.
-Ao conjunto de Data Warehouse e aplicações OLAP denomina-se ambiente OLAP.
+de maneira tão eficiente quanto à estruturação do repositório. Aplicações OLAP (\textit{Online Analytical Processing}) 
+analisam dados multidimensionalmente 
+e executam consultas analíticas, fazendo com que estejam fortemente associadas à DW.
+Ao conjunto de DW e aplicações OLAP denomina-se ambiente OLAP.
 
 Um ambiente OLAP deve ser projetado e implantado visando a rapidez na recuperação de dados \cite{wrembel2007data}, 
 \cite{codd1998providing}, \cite{kimball2002dw}. Sistemas Gerenciadores de Bancos de Dados (SGBD) surgem como uma solução 
-para esta questão, e duas classes de SGBD podem atuar como gerenciadores de Data Warehouses, os relacionais e os NoSQL. 
+para esta questão, e duas classes de SGBD podem atuar como gerenciadores de DW, os relacionais e os NoSQL. 
 Para que haja uma conclusão sobre qual abordagem é a melhor, a aplicação de um benchmark torna-se pertinente, 
 e no escopo de banco de dados um benchmark que se destaca por tratar de sistemas de suporte à decisão é o TPC-H \cite{tpch2017page}. 
 
@@ -58,20 +72,108 @@ Entretanto, modelos denormalizados surgem para trazer ganho no desempenho das co
 as junções entre tabelas devido ao menor número de entidades.
 
 Dadas estas condições, o objetivo aqui é realizar um estudo comparativo entre um SGBD relacional e outro NoSQL 
-como gerenciadores de Data Warehouse utilizando o TPC-H. Devido a seu amplo uso e poucas modificações na linguagem SQL, foi definido o PostgreSQL 
+como gerenciadores de DW utilizando o TPC-H. Devido a seu amplo uso e poucas modificações na linguagem SQL, foi definido o PostgreSQL 
 como SGBD relacional e o MonetDB como NoSQL, este por ainda utilizar SQL, possuir interface simples e ser o pioneiro 
 entre os bancos NoSQL colunares.
 
 \section{Recuperação e Persistência de Dados}
 
+Um DW é definido como uma coleção de dados não-volátil, orientado ao assunto da organização, 
+integrado e variante no tempo \cite{inmon2005building}. Ele é a base para todos os sistemas de 
+suporte a decisão, atualmente definido como ambiente OLAP, e sua estrutura consiste de um 
+repositório de dados homogêneo, local e centralizado \cite{wrembel2007data}.
 
+É necessário que uma aplicação processe os dados contidos no repositório. DW trabalham sob uma grande 
+massa de dados e executam consultas analíticas com base no suporte à decisão para acessar milhões de registros 
+\cite{chaudhuri1997overview}, visando a união de dados com informações úteis para o mercado. Devido a isso, histórico, 
+taxa de vazão de consultas e o tempo de resposta são fatores importantes ao processar os dados do DW.
 
+Aplicações OLAP estão diretamente ligadas a DW pois seus objetivos englobam identificar tendências, 
+padrões de comportamento de anomalias, e ainda relações entre dados \cite{codd1998providing} sob um grande 
+volume de dados. Suas consultas são longas, consomem grande tempo de execução e estão interessadas em 
+atributos específicos; e o processo de inserção de dados segue um processo conhecido como ETL (extração, transformação e carga), 
+sendo mais complexo que pequenas transações \cite{vertabelo2017olap}.
+
+O processo ETL define uma etapa da arquitetura de DW, 
+e consiste (i) da extração de dados de diferentes fontes para uma fase temporária; (ii) da transformação destes dados de acordo com a 
+modelagem do DW; e (iii) do carregamento dos registros no DW em si, no qual é feito o tratamento da organização, armazenamento e 
+disponibilidade dos dados para as aplicações analíticas. É nesta fase que a modelagem conceitual do ambiente é definida. 
+A modelagem de aplicações OLAP tem como base a modelagem dimensional, ou multidimensional, fazendo uma analogia com um cubo para 
+a representação de dados, uma vez que uma informaçõa pode ser vista através de \textit{n} dimensões. 
+Em sua concepção, a modelagem dimensional é composta por tabelas fato e tabelas dimensão.
+
+Fatos representam regras, ou métricas, de negócio, e geralmente são descritos como atributos 
+numéricos, relacionados à quantidades; ou aditivos, pois uma aplicação nunca irá retornar somente um fato, 
+mas sim vários onde a operação mais recorrente é a soma de atributos.
+Atributos textuais não definem um fato, na maioria das vezes apenas descrevem algo e são inseridos 
+nas tabelas dimensão, que contem descrições a fim de tornar os fatos mais claros. Não é incomum encontrar tabelas dimensão  
+com mais de 100 atributos e poucas tuplas, pois a intenção das dimensões é descrever as regras definidas por um 
+fato. Nestas entidades são filtradas as consultas, compreendendo agrupamentos, padrões e ordenações, por exemplo.
+
+Modelos dimensionais no escopo de um warehouse possuem apenas um fato com várias dimensões, fazendo com que 
+sua estrutura se assemelhe a uma estrela, sendo conhecidos como modelos estrelas (\textit{star}). Este modelo é 
+simples e torna eficiente a recuperação de dados por ter um número menor de junções. Entretanto, com a afirmação de 
+que modelos normalizados são mais fáceis para se dar manutenção, alguns modelos \textit{star} podem ser trabalhados 
+criando-se novas tabelas denominadas subdimensão. Estes modelos caracterizam modelagens relacionais e são conhecidos 
+como modelos \textit{snowflake}.
+
+Para comparar o desempenho entre modelagens pode-se utilizar SGBD como gerenciadores de DW.
+Eles possuem algumas vantagens que os tornam úteis para tal, como controle de redundância, restrições de acesso, 
+inserção de índices, restrições de integridade, possibilidade de realizar backup e restauração de dados, e persistência 
+de dados garantida. Um modelo de SGBD muito conhecido e utilizado é o relacional. Esta classe está atrelada à modelagens 
+mais normalizadas, aproximando-se do modelo \textit{snowflake} de DW, e segue o conceito de ACID. Modelos 
+assim definidos possuem algumas limitações quanto à escalabilidade, complexidade e o fato de todas as informações serem 
+mantidas e recuperadas sob a forma de tuplas \cite{leavitt2010will}. Tais limitações podem degradar o desempenho de 
+um ambiente analítico, visto que uma consulta analítica processa apenas os atributos necessários. Mesmo a adição de 
+índices não ajudaria, devido a necessidade de ler estes índices \cite{matei2010column}. Para suprir estes problemas 
+SGBD NoSQL podem ser utilizados.
+
+O fortalecimento do movimento NoSQL se deu em 2007 com um artigo da Amazon sobre o banco Dynamo 
+\cite{decandia2007dynamo, leavitt2010will}, cujo objetivo era satisfazer algumas deficiências apontadas 
+pelos SGBD relacionais, para tanto trabalham com modelagens de dados mais denormalizadas e podem ser classificados 
+de diferentes formas de acordo com sua estruturação. O que melhor trabalha ainda com SQL é o modelo colunar. Seu 
+diferencial é o armazenamento de todas as instâncias de um mesmo atributo junto. Isto reduz o tempo de acesso e 
+escrita em disco \cite{matei2010column, abadi2008query}, retornando apenas os atributos solicitados; e também 
+torna possível a compressão de dados \cite{abadi2006integrating} e a eficiencia em operações 
+matemáticas de agregação \cite{matei2010column}.
 
 \section{TPC-H}
+Para selecionar qual SGBD é o mais adequado a cada modelagem em ambientes OLAP a 
+realização de um benchmark é o mais indicado. De acordo com seu manual de especificação \cite{tpc2017specs}, o TPC-H 
+é um benchmark de suporte à decisão de negócios, representando grandes volumes de dados e executando 
+consultas com um alto grau de complexidade a fim de responder questões críticas de negócio. Ele propõe 
+uma modelagem \textit{snowflake} que pode ser encontrada no manual do TPC-H \cite{tpc2017specs}.
+
+O TPC-H não apresenta uma modelagem denormalizada de dados similar à \textit{star}. Para tanto, foi construido 
+um ambiente denormalizado a partir do ambiente original do TPC-H para as devidas comparações. 
+Essa construção se fundamentou na criação de um modelo com 
+uma única entidade fato central, unindo atributos de diferentes fatos, descrita por dimensões; e 
+na remoção de tabelas subdimensão.
+
+Cada SGBD é executado sobre os dois ambientes, \textit{snowflake} e \textit{star}.
+Em cada ambiente será executado o teste de desempenho, que é composto de duas execuções: 
+o teste de força e o teste de vazão. Estas duas execuções são utilizadas para calcular o 
+desempenho do SGBD, utilizando a unidade de medida \textit{QphH@Size}, que corresponde à quantidade 
+de consultas executadas por hora para determinado tamanho de banco de dados.
+
+O primeiro teste, de força, mede a taxa de consultas por hora do sistema com um único usuário ativo. 
+Neste teste são executadas em uma única sessão três instruções: inserção de novos registros, consultas 
+em SQL para recuperar informações, e remoção da mesma quantia de registros inseridos; exatamente nesta ordem. O 
+segundo, o teste de vazão, mede a capacidade do sistema de processar a maior quantidade de consultas no menor 
+intervalo de tempo. Sua execução se dá sob um número mínimo de sessões, também de acordo com o tamanho 
+da base. É criada uma sessão para executar a inserção e remoção de dados, e \textit{n} sessões para as consultas ao 
+banco; sendo estas instruções executadas concorrentemente.
 
 \section{O Experimento}
 
-\section{Conclusão}
+O estudo foi feito para bases de diferentes tamanhos, sendo estes de 1GB, 10GB e 30GB. Previamente foi analisado 
+também o tempo para realizar a carga de dados nos SGBD. Logo ao analisar os resultados notou-se que uma base 
+denormalizada leva mais tempo para o carregamento. Isto deve-se à redundância de dados de alguns atributos que 
+antes eram tratados em entidades separadas, aumentando o tamanho das entidades das quais eles agora fazem parte.
+
+% Algumas considerações foram feitas aqui para se obter 
+% melhor desempenho no carregamento: as restrições de chave foram aplicadas após a inserção completa dos dados nos SGBD, e 
+% os dados foram inseridos acessando o SGBD diretamente, sem o uso de drivers ou outros softwares gerenciadores.
 
 \bibliographystyle{sbc}
 \bibliography{REFERENCES}

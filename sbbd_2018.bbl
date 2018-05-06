@@ -1,10 +1,27 @@
 \begin{thebibliography}{}
 
+\bibitem[Abadi et~al. 2006]{abadi2006integrating}
+Abadi, D., Madden, S., and Ferreira, M. (2006).
+\newblock Integrating compression and execution in column-oriented database
+  systems.
+\newblock In {\em Proceedings of the 2006 ACM SIGMOD international conference
+  on Management of data}, pages 671--682. ACM.
+
+\bibitem[Abadi 2008]{abadi2008query}
+Abadi, D.~J. (2008).
+\newblock {\em Query execution in column-oriented database systems}.
+\newblock PhD thesis, Massachusetts Institute of Technology.
+
 \bibitem[Bax and Souza 2003]{bax2003modelagem}
 Bax, M.~P. and Souza, R. (2003).
 \newblock Modelagem estratégica de dados: Normalização versus
   "dimensionalização".
 \newblock {\em KMBRASIL, Anais... S{\~a}o Paulo: SBGC}.
+
+\bibitem[Chaudhuri and Dayal 1997]{chaudhuri1997overview}
+Chaudhuri, S. and Dayal, U. (1997).
+\newblock An overview of data warehousing and olap technology.
+\newblock {\em ACM Sigmod record}, 26(1):65--74.
 
 \bibitem[Codd et~al. 1993]{codd1998providing}
 Codd, E., Codd, S., and Salley, C. (1993).
@@ -12,14 +29,42 @@ Codd, E., Codd, S., and Salley, C. (1993).
   it mandate.
 \newblock {\em White paper}.
 
+\bibitem[DeCandia et~al. 2007]{decandia2007dynamo}
+DeCandia, G., Hastorun, D., Jampani, M., Kakulapati, G., Lakshman, A., Pilchin,
+  A., Sivasubramanian, S., Vosshall, P., and Vogels, W. (2007).
+\newblock Dynamo: amazon's highly available key-value store.
+\newblock In {\em ACM SIGOPS operating systems review}, volume~41, pages
+  205--220. ACM.
+
+\bibitem[Inmon 2005]{inmon2005building}
+Inmon, W.~H. (2005).
+\newblock {\em Building the data warehouse}.
+\newblock John wiley \& sons.
+
 \bibitem[Kimball and Ross 2002]{kimball2002dw}
 Kimball, R. and Ross, M. (2002).
 \newblock {\em The Data Warehouse Toolkit: The Complete Guide to Dimensional
   Modeling}.
 \newblock Wiley Computer Publishing, 2 edition.
 
-\bibitem[TPC-H 2017]{tpch2017page}
-TPC-H (2017).
+\bibitem[Leavitt 2010]{leavitt2010will}
+Leavitt, N. (2010).
+\newblock Will nosql databases live up to their promise?
+\newblock {\em Computer}, 43(2).
+
+\bibitem[Matei and Bank 2010]{matei2010column}
+Matei, G. and Bank, R.~C. (2010).
+\newblock Column-oriented databases, an alternative for analytical environment.
+\newblock {\em Database Systems Journal}, 1(2):3--16.
+
+\bibitem[TPC-H 2017a]{tpc2017specs}
+TPC-H (2017a).
+\newblock {\em TPC BENCHMARK H Standard Specification. Revision 2.17.2}.
+\newblock Transaction Processing Performance Council, San Francisco.
+\newblock Acessado em: 12 de maio de 2017.
+
+\bibitem[TPC-H 2017b]{tpch2017page}
+TPC-H (2017b).
 \newblock Tpc-h homepage.
 \newblock Acessado em: 19 de maio de 2017.
 
@@ -28,5 +73,10 @@ Wrembel, R. and Koncilia, C. (2007).
 \newblock {\em Data warehouses and OLAP: concepts, architectures, and
   solutions}.
 \newblock Igi Global.
+
+\bibitem[Zelen 2017]{vertabelo2017olap}
+Zelen, A. (2017).
+\newblock Oltp vs. olap — what’s the difference?
+\newblock Acessado em: 12 de abril de 2018.
 
 \end{thebibliography}
