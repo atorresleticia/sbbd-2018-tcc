@@ -18,6 +18,11 @@ Bax, M.~P. and Souza, R. (2003).
   "dimensionalização".
 \newblock {\em KMBRASIL, Anais... S{\~a}o Paulo: SBGC}.
 
+\bibitem[Brewer 2000]{brewer2000towards}
+Brewer, E.~A. (2000).
+\newblock Towards robust distributed systems.
+\newblock In {\em PODC}, volume~7.
+
 \bibitem[Chaudhuri and Dayal 1997]{chaudhuri1997overview}
 Chaudhuri, S. and Dayal, U. (1997).
 \newblock An overview of data warehousing and olap technology.
