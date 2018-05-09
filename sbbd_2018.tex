@@ -162,7 +162,8 @@ na remoção de tabelas subdimensão.
 
 Cada SGBD é executado sobre os dois ambientes, \textit{snowflake} e \textit{star}.
 Em cada ambiente será executado o teste de desempenho, que é composto de duas execuções: 
-o teste de força e o teste de vazão. Estas duas execuções são utilizadas para calcular o 
+o teste de força e o teste de vazão, representados pelas métricas \textit{Power@Size} e \textit{Throughput@Size}, 
+onde \textit{Size} representa o tamanho da base de dados. Estas duas execuções são utilizadas para calcular o 
 desempenho do SGBD, utilizando a unidade de medida \textit{QphH@Size}, que corresponde à quantidade 
 de consultas executadas por hora para determinado tamanho de banco de dados.
 
@@ -176,10 +177,27 @@ banco; sendo estas instruções executadas concorrentemente.
 
 \section{O Experimento}
 
-O estudo foi feito para bases de diferentes tamanhos, sendo estes de 1GB, 10GB e 30GB. Previamente foi analisado 
+O estudo foi feito para bases de diferentes tamanhos, sendo estes de 1GB, 10GB e 30GB, a fim de 
+verificar o comportamento dos SGBD conforme o volume de dados cresce. Previamente foi analisado 
 também o tempo para realizar a carga de dados nos SGBD. Logo ao analisar os resultados notou-se que uma base 
-denormalizada leva mais tempo para o carregamento. Isto deve-se à redundância de dados de alguns atributos que 
-antes eram tratados em entidades separadas, aumentando o tamanho das entidades das quais eles agora fazem parte.
+denormalizada leva mais tempo para o carregamento, isto deve-se à redundância de dados de alguns atributos que 
+antes eram tratados em entidades separadas, aumentando o tamanho das entidades das quais eles agora fazem parte. 
+Como mostra a Tabela \ref{tab:carregamento}, o MonetDB teve desempenho melhor que o PostgreSQL.
+
+\begin{table}[htpb]
+    \centering
+    \caption{Tempo de carregamento em segundos para os cenários de benchmark}
+    \label{tab:carregamento}
+    \begin{tabular}{c|ccc|c}
+    \hline
+    \multirow{2}{*}{SGBD} & \multicolumn{3}{c|}{Base de Dados (GB)} & \multirow{2}{*}{Ambiente}  \\
+                          & 1           & 10          & 30          &                            \\ \hline
+    MonetDB               & 44          & 409         & 1351        & \multirow{2}{*}{Snowflake} \\
+    PostgreSQL            & 104         & 816         & 4979        &                            \\ \hline
+    MonetDB               & 88          & 689         & 2216        & \multirow{2}{*}{Star}      \\
+    PostgreSQL            & 166         & 2365        & 7216        &                            \\ \hline
+    \end{tabular}
+\end{table}
 
 O processo do TPC-H foi desenvolvido utilizando o driver JDBC devido a simplificação 
 que seu uso traz ao desenvolvimento de aplicações e por dar suporte à vários SGBD. A 
@@ -198,10 +216,10 @@ melhor do PostgreSQL sob o MonetDB.
     \hline
     \multirow{2}{*}{SGBD} & \multicolumn{3}{c|}{Base de Dados (GB)} & \multirow{2}{*}{Execução}       \\
                           & 1             & 10         & 30         &                                 \\ \hline
-    MonetDB               & 4.231         & 7.237      & 4.292      & \multirow{2}{*}{Teste de Força} \\
-    PostgreSQL            & 2.022         & 1.120      & 0.781      &                                 \\ \hline
-    MonetDB               & 1622.929      & 3.305      & 0.125      & \multirow{2}{*}{Teste de Vazão} \\
-    PostgreSQL            & 958.028       & 3.645      & 0.244      &                                 \\ \hline
+    MonetDB               & 4.231qph         & 7.237qph      & 4.292qph      & \multirow{2}{*}{\textit{Power@Size}} \\
+    PostgreSQL            & 2.022qph         & 1.120qph      & 0.781qph      &                                 \\ \hline
+    MonetDB               & 1622.929qph      & 3.305qph      & 0.125qph      & \multirow{2}{*}{\textit{Throughput@Size}} \\
+    PostgreSQL            & 958.028qph       & 3.645qph      & 0.244qph      &                                 \\ \hline
     \end{tabular}
 \end{table}
 
@@ -220,10 +238,10 @@ os resultados do normalizado sejam um pouco melhores ao denormalizado.
     \hline
     \multirow{2}{*}{SGBD} & \multicolumn{3}{c|}{Base de Dados (GB)} & \multirow{2}{*}{Execução}       \\
                           & 1             & 10         & 30         &                                 \\ \hline
-    MonetDB               & 3.435         & 4.643      & 3.253      & \multirow{2}{*}{Teste de Força} \\
-    PostgreSQL            & 1.291         & 0.355      & 0.302      &                                 \\ \hline
-    MonetDB               & 2468.020      & 5.836      & 0.184      & \multirow{2}{*}{Teste de Vazão} \\
-    PostgreSQL            & 637.310       & 1.495      & 0.134      &                                 \\ \hline
+    MonetDB               & 3.435qph         & 4.643qph      & 3.253qph      & \multirow{2}{*}{\textit{Power@Size}} \\
+    PostgreSQL            & 1.291qph         & 0.355qph      & 0.302qph      &                                 \\ \hline
+    MonetDB               & 2468.02qph      & 5.836qph      & 0.184qph      & \multirow{2}{*}{\textit{Throughput@Size}} \\
+    PostgreSQL            & 637.31qph       & 1.495qph      & 0.134qph      &                                 \\ \hline
     \end{tabular}
     \end{table}
 
@@ -261,6 +279,7 @@ normalizado e 221.02\%, 614.57\% e 284.51\% no ambiente denormalizado.
 Com alguns ganhos superiores à 100\% no ambiente normalizado e todos superiores à 
 200\% no denormalizado com seu melhor valor sendo 7 vezes melhor que o do PostgreSQL, 
 corrobora-se a ideia de que um SGBD NoSQL pode trazer vantagens para ambientes OLAP, 
+tanto para a leitura quanto para o carregamento de dados,  
 por adaptar-se melhor à modelagem comumente utilizada por DW. Embora algumas consultas 
 do ambiente denormalizado tenham levado um pouco mais de tempo para executar isso não 
 interferiu de maneira crítica no benchmark.
