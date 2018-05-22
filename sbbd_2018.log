@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6670 64-bit) (preloaded format=pdflatex 2018.4.22)  9 MAY 2018 14:51
+This is pdfTeX, Version 3.14159265-2.6-1.40.19 (MiKTeX 2.9.6670 64-bit) (preloaded format=pdflatex 2018.4.22)  22 MAY 2018 14:40
 entering extended mode
 **"c:/Users/Leticia Torres/Google Drive/UNIOESTE/ARTIGOS/SBBD_2018/sbbd_2018.te
 x"
@@ -394,73 +394,67 @@ LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <12> not available
 LaTeX Font Info:    Font shape `T1/ptm/bx/it' in size <12> not available
 (Font)              Font shape `T1/ptm/b/it' tried instead on input line 37.
 LaTeX Font Info:    Font shape `T1/ptm/bx/n' in size <13> not available
-(Font)              Font shape `T1/ptm/b/n' tried instead on input line 63.
+(Font)              Font shape `T1/ptm/b/n' tried instead on input line 84.
+ [1
 
-Underfull \hbox (badness 6001) in paragraph at lines 74--79
-[]\T1/ptm/m/n/12 Um am-bi-ente OLAP deve ser pro-je-tado e im-plan-tado vi-sand
-o a ra-
- []
+{C:/Users/Leticia Torres/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}] [2
+]
+LaTeX Font Info:    Try loading font information for T1+phv on input line 208.
 
-
-Underfull \hbox (badness 3343) in paragraph at lines 74--79
-\T1/ptm/m/n/12 pi-dez na re-cu-pe-ra-ção de da-dos [[]], [[]],
- []
-
-[1
-
-{C:/Users/Leticia Torres/AppData/Local/MiKTeX/2.9/pdftex/config/pdftex.map}]
-[2] [3]
-LaTeX Font Info:    Try loading font information for T1+phv on input line 189.
- ("C:\MiKTeX 2.9\tex\latex\psnfss\t1phv.fd"
+("C:\MiKTeX 2.9\tex\latex\psnfss\t1phv.fd"
 File: t1phv.fd 2001/06/04 scalable font definitions for T1/phv.
 )
 LaTeX Font Info:    Font shape `T1/phv/bx/n' in size <10> not available
-(Font)              Font shape `T1/phv/b/n' tried instead on input line 189.
- [4]
-<imagens/qph_monetdb.png, id=20, 412.54124pt x 239.39438pt>
+(Font)              Font shape `T1/phv/b/n' tried instead on input line 208.
+LaTeX Font Info:    Font shape `T1/phv/bx/it' in size <10> not available
+(Font)              Font shape `T1/phv/b/it' tried instead on input line 208.
+LaTeX Font Info:    Font shape `T1/phv/b/it' in size <10> not available
+(Font)              Font shape `T1/phv/b/sl' tried instead on input line 208.
+ [3] [4]
+<imagens/qph_monetdb.png, id=21, 406.51875pt x 256.70906pt>
 File: imagens/qph_monetdb.png Graphic file (type png)
 <use imagens/qph_monetdb.png>
-Package pdftex.def Info: imagens/qph_monetdb.png  used on input line 259.
-(pdftex.def)             Requested size: 204.85974pt x 118.87865pt.
-<imagens/qph_postgres.png, id=22, 397.485pt x 237.13594pt>
+Package pdftex.def Info: imagens/qph_monetdb.png  used on input line 297.
+(pdftex.def)             Requested size: 204.85974pt x 129.3648pt.
+<imagens/qph_postgres.png, id=23, 407.27156pt x 252.945pt>
 File: imagens/qph_postgres.png Graphic file (type png)
 <use imagens/qph_postgres.png>
-Package pdftex.def Info: imagens/qph_postgres.png  used on input line 260.
-(pdftex.def)             Requested size: 204.85974pt x 122.21863pt.
- [5 <./imagens/qph_monetdb.png> <./imagens/qph_postgres.png>]
-<imagens/qph_snowflake.png, id=28, 410.2828pt x 237.13594pt>
+Package pdftex.def Info: imagens/qph_postgres.png  used on input line 298.
+(pdftex.def)             Requested size: 204.85974pt x 127.23253pt.
+<imagens/qph_snowflake.png, id=24, 405.01312pt x 251.43938pt>
 File: imagens/qph_snowflake.png Graphic file (type png)
 <use imagens/qph_snowflake.png>
-Package pdftex.def Info: imagens/qph_snowflake.png  used on input line 272.
-(pdftex.def)             Requested size: 204.85974pt x 118.40483pt.
-<imagens/qph_star.png, id=29, 407.27156pt x 241.65282pt>
+Package pdftex.def Info: imagens/qph_snowflake.png  used on input line 304.
+(pdftex.def)             Requested size: 204.85974pt x 127.18114pt.
+<imagens/qph_star.png, id=25, 404.26031pt x 245.41687pt>
 File: imagens/qph_star.png Graphic file (type png)
 <use imagens/qph_star.png>
-Package pdftex.def Info: imagens/qph_star.png  used on input line 273.
-(pdftex.def)             Requested size: 204.85974pt x 121.5525pt.
- (sbbd_2018.bbl [6 <./imagens/qph_snowflake.png> <./imagens/qph_star.png>]
-LaTeX Font Info:    Try loading font information for T1+pcr on input line 68.
+Package pdftex.def Info: imagens/qph_star.png  used on input line 305.
+(pdftex.def)             Requested size: 204.85974pt x 124.36705pt.
+ [5 <./imagens/qph_monetdb.png> <./imagens/qph_postgres.png> <./imagens/qph_sno
+wflake.png> <./imagens/qph_star.png>] (sbbd_2018.bbl
+LaTeX Font Info:    Try loading font information for T1+pcr on input line 44.
  ("C:\MiKTeX 2.9\tex\latex\psnfss\t1pcr.fd"
 File: t1pcr.fd 2001/06/04 font definitions for T1/pcr.
-))
-[7] (sbbd_2018.aux) ) 
+)) [6]
+(sbbd_2018.aux) ) 
 Here is how much of TeX's memory you used:
- 4374 strings out of 492972
- 57752 string characters out of 3142019
- 144401 words of memory out of 3000000
- 8109 multiletter control sequences out of 15000+200000
- 36287 words of font info for 48 fonts, out of 3000000 for 9000
+ 4367 strings out of 492972
+ 57629 string characters out of 3142019
+ 146286 words of memory out of 3000000
+ 8100 multiletter control sequences out of 15000+200000
+ 39143 words of font info for 50 fonts, out of 3000000 for 9000
  1143 hyphenation exceptions out of 8191
- 41i,9n,28p,342b,273s stack positions out of 5000i,500n,10000p,200000b,50000s
-{C:/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/MiKTeX 2.9/
-fonts/type1/public/amsfonts/cm/cmr8.pfb><C:/MiKTeX 2.9/fonts/type1/urw/courier/
-ucrr8a.pfb><C:/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/MiKTeX 2.9/fo
-nts/type1/urw/times/utmb8a.pfb><C:/MiKTeX 2.9/fonts/type1/urw/times/utmbi8a.pfb
-><C:/MiKTeX 2.9/fonts/type1/urw/times/utmr8a.pfb><C:/MiKTeX 2.9/fonts/type1/urw
-/times/utmri8a.pfb>
-Output written on sbbd_2018.pdf (7 pages, 153948 bytes).
+ 41i,9n,28p,342b,266s stack positions out of 5000i,500n,10000p,200000b,50000s
+{C:/MiKTeX 2.9/fonts/enc/dvips/base/8r.enc}<C:/MiKTeX 2.9/font
+s/type1/public/amsfonts/cm/cmr8.pfb><C:/MiKTeX 2.9/fonts/type1/urw/courier/ucrr
+8a.pfb><C:/MiKTeX 2.9/fonts/type1/urw/helvetic/uhvb8a.pfb><C:/MiKTeX 2.9/fonts/
+type1/urw/helvetic/uhvbo8a.pfb><C:/MiKTeX 2.9/fonts/type1/urw/times/utmb8a.pfb>
+<C:/MiKTeX 2.9/fonts/type1/urw/times/utmbi8a.pfb><C:/MiKTeX 2.9/fonts/type1/urw
+/times/utmr8a.pfb><C:/MiKTeX 2.9/fonts/type1/urw/times/utmri8a.pfb>
+Output written on sbbd_2018.pdf (6 pages, 147583 bytes).
 PDF statistics:
- 64 PDF objects out of 1000 (max. 8388607)
+ 63 PDF objects out of 1000 (max. 8388607)
  0 named destinations out of 1000 (max. 500000)
  21 words of extra memory for PDF output out of 10000 (max. 10000000)
 

@@ -12,21 +12,10 @@ Abadi, D.~J. (2008).
 \newblock {\em Query execution in column-oriented database systems}.
 \newblock PhD thesis, Massachusetts Institute of Technology.
 
-\bibitem[Bax and Souza 2003]{bax2003modelagem}
-Bax, M.~P. and Souza, R. (2003).
-\newblock Modelagem estratégica de dados: Normalização versus
-  "dimensionalização".
-\newblock {\em KMBRASIL, Anais... S{\~a}o Paulo: SBGC}.
-
 \bibitem[Brewer 2000]{brewer2000towards}
 Brewer, E.~A. (2000).
 \newblock Towards robust distributed systems.
 \newblock In {\em PODC}, volume~7.
-
-\bibitem[Chaudhuri and Dayal 1997]{chaudhuri1997overview}
-Chaudhuri, S. and Dayal, U. (1997).
-\newblock An overview of data warehousing and olap technology.
-\newblock {\em ACM Sigmod record}, 26(1):65--74.
 
 \bibitem[Codd et~al. 1993]{codd1998providing}
 Codd, E., Codd, S., and Salley, C. (1993).
@@ -34,23 +23,10 @@ Codd, E., Codd, S., and Salley, C. (1993).
   it mandate.
 \newblock {\em White paper}.
 
-\bibitem[DeCandia et~al. 2007]{decandia2007dynamo}
-DeCandia, G., Hastorun, D., Jampani, M., Kakulapati, G., Lakshman, A., Pilchin,
-  A., Sivasubramanian, S., Vosshall, P., and Vogels, W. (2007).
-\newblock Dynamo: amazon's highly available key-value store.
-\newblock In {\em ACM SIGOPS operating systems review}, volume~41, pages
-  205--220. ACM.
-
 \bibitem[Inmon 2005]{inmon2005building}
 Inmon, W.~H. (2005).
 \newblock {\em Building the data warehouse}.
 \newblock John wiley \& sons.
-
-\bibitem[Kimball and Ross 2002]{kimball2002dw}
-Kimball, R. and Ross, M. (2002).
-\newblock {\em The Data Warehouse Toolkit: The Complete Guide to Dimensional
-  Modeling}.
-\newblock Wiley Computer Publishing, 2 edition.
 
 \bibitem[Leavitt 2010]{leavitt2010will}
 Leavitt, N. (2010).
@@ -73,12 +49,6 @@ TPC-H (2017b).
 \newblock Tpc-h homepage.
 \newblock \url{http://www.tpc.org/tpch/}.
 \newblock Acessado em: 19 de maio de 2017.
-
-\bibitem[Wrembel and Koncilia 2007]{wrembel2007data}
-Wrembel, R. and Koncilia, C. (2007).
-\newblock {\em Data warehouses and OLAP: concepts, architectures, and
-  solutions}.
-\newblock Igi Global.
 
 \bibitem[Zelen 2017]{vertabelo2017olap}
 Zelen, A. (2017).
